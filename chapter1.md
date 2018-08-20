@@ -1,26 +1,33 @@
 ---
-title: Template Chapter 1
-description: This is a template chapter.
+  title: "Welcome"
+  description: "This is a template chapter."
 ---
 
-## An exercise title written in sentence case
+## Prelims
 
 ```yaml
-type: NormalExercise
+type: NormalExercise 
 lang: r
-xp: 100
+xp: 100 
 skills: 1
-key: 6d87677cfe
+key: 6d87677cfe   
 ```
 
-This is the assignment text. It should help provide students with the background information needed.
-The instructions that follow should be in bullet point form with clear guidance for what is expected.
+
+Welcome to FCA Intro to R! In the following sections we're going to learn the basics to plot and manipulate maps in R. 
+
+Since we are at it, we'll also learn some basic stuff about `data.table` syntax. It's just more fun than dataframes, and also a lot more efficient.
+
+Try typing `?data.table` in your console to take a look at the package documentation.
+Let's start by loading two libraries: `data.table` and `zoo`. To do that, you can use the function `library()`. Once the libraries are loaded, let's take a look at the documentation for `zoo`.
+
+The `data.table` object `crime.dt` will already be loaded to the environment. We can start by having a look at some of its basic properties. Try using the function `names()` to print its column names to your screen.
+
 
 `@instructions`
-- Instruction 1
-- Instruction 2
-- Instruction 3
-- Instruction 4
+- Load the `data.table` and the `zoo` library
+- Take a look at the documentation for `zoo`
+-
 
 `@hint`
 - Here is the hint for this setup problem. 
@@ -32,6 +39,8 @@ The instructions that follow should be in bullet point form with clear guidance 
 
 ```{r}
 # Load datasets and packages here.
+load("crime_dt_wide.rda") # object name: crime.dt
+setnames(crime.dt, 
 ```
 
 `@sample_code`
