@@ -38,8 +38,8 @@ The `data.table` object `crime.dt` will already be loaded to the environment. We
 
 ```{r}
 # Load datasets and packages here.
+library(data.table)
 load("crime_dt_wide.rda") # object name: crime.dt
-# setnames(crime.dt,
 ```
 
 `@sample_code`
@@ -57,11 +57,10 @@ load("crime_dt_wide.rda") # object name: crime.dt
 `@solution`
 
 ```{r}
-
 library(data.table)
 library(zoo)
 
-?zoo
+setnames(crime.dt, names(crime.dt), tolower(names(crime.dt)))
 
 names(crime.dt)
 ```
@@ -70,5 +69,12 @@ names(crime.dt)
 
 ```{r}
 # Update this to something more informative.
+"zoo" %in% loadedNamespaces()
+"data.table" %in% loadedNamespaces()
+
+lapply(names(crime.dt), function(x) x==tolower(x))
+       
+
+
 success_msg("Well done! Let's try to do something that's actually useful now.")
 ```
