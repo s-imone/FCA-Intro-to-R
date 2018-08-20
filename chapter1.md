@@ -32,7 +32,7 @@ The `data.table` object `crime.dt` will already be loaded to the environment. We
 `@hint`
 - Try `library()`
 - `?` followed by any R command will open the relevant documentation, provided the right libraries are loaded to your environment.
-- Try `?library()`
+- Have you tried `?names()`?
 
 `@pre_exercise_code`
 
@@ -45,29 +45,30 @@ load("crime_dt_wide.rda") # object name: crime.dt
 `@sample_code`
 
 ```{r}
-# Your
-# sample
-# code
-# should
-# be
-# ideally
-# 10 lines or less,
-# with a max
-# of 16 lines.
+# Load the two libraries
+# ...
+# ...
+# Take a look at the documentation for zoo
+# ...
+# Print crime.dt column names
+# ...
 ```
 
 `@solution`
 
 ```{r}
-# Answer goes here
-# Make sure to match the comments with your sample code
-# to help students see the differences from solution
-# to given.
+
+library(data.table)
+library(zoo)
+
+?zoo
+
+names(crime.dt)
 ```
 
 `@sct`
 
 ```{r}
 # Update this to something more informative.
-success_msg("Some praise! Then reinforce a learning objective from the exercise.")
+success_msg("Well done! Let's try to do something that's actually useful now.")
 ```
