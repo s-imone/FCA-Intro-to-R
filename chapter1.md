@@ -27,20 +27,19 @@ The `data.table` object `crime.dt` will already be loaded to the environment. We
 `@instructions`
 - Load the `data.table` and the `zoo` library
 - Take a look at the documentation for `zoo`
--
+- Print `crime.dt` column names to screen
 
 `@hint`
-- Here is the hint for this setup problem. 
-- It should get students 50% of the way to the correct answer.
-- So don't provide the answer, but don't just reiterate the instructions.
-- Typically one hint per instruction is a sensible amount.
+- Try `library()`
+- `?` followed by any R command will open the relevant documentation, provided the right libraries are loaded to your environment.
+- Try `?library()`
 
 `@pre_exercise_code`
 
 ```{r}
 # Load datasets and packages here.
 load("crime_dt_wide.rda") # object name: crime.dt
-setnames(crime.dt, 
+# setnames(crime.dt,
 ```
 
 `@sample_code`
