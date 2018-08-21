@@ -1,6 +1,6 @@
 ---
-  title: "Welcome"
-  description: "This is a template chapter."
+title: Welcome
+description: 'This is a template chapter.'
 ---
 
 ## Prelims
@@ -26,7 +26,7 @@ The `data.table` object `crime.dt` will already be loaded to the environment. We
 
 `@instructions`
 - Load the `data.table` and the `zoo` library
-- Take a look at the documentation for `zoo`
+- Change names to lower case
 - Print `crime.dt` column names to screen
 
 `@hint`
@@ -38,9 +38,9 @@ The `data.table` object `crime.dt` will already be loaded to the environment. We
 
 ```{r}
 # Load datasets and packages here.
-library(data.table)
 load("crime_dt_wide.rda") # object name: crime.dt
 ```
+
 
 `@sample_code`
 
@@ -54,10 +54,10 @@ load("crime_dt_wide.rda") # object name: crime.dt
 # ...
 ```
 
+
 `@solution`
 
 ```{r}
-library(data.table)
 library(zoo)
 
 setnames(crime.dt, names(crime.dt), tolower(names(crime.dt)))
@@ -65,16 +65,24 @@ setnames(crime.dt, names(crime.dt), tolower(names(crime.dt)))
 names(crime.dt)
 ```
 
+
 `@sct`
 
 ```{r}
 # Update this to something more informative.
-"zoo" %in% loadedNamespaces()
-"data.table" %in% loadedNamespaces()
+test_student_typed("library(data.table)", not_typed_msg = "Are you sure you loaded all the libraries? Take another look at the instruction.")
+test_student_typed("library(zoo)", not_typed_msg = "Are you sure you loaded all the libraries? Take another look at the instruction.")
 
-lapply(names(crime.dt), function(x) x==tolower(x))
+test_object("names(crime.dt)", incorrect_msg = "Something is wrong with the column names of `crime.dt`. Make sure they are all lower case!.")
        
-
+test_output_contains("names(crime.dt)", incorrect_msg = "Take a look at your code for the third instruction. Consider checking-out documentation for `names()`."
 
 success_msg("Well done! Let's try to do something that's actually useful now.")
 ```
+
+
+`@possible_answers`
+
+
+`@feedback`
+
