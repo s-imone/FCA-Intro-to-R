@@ -58,6 +58,7 @@ load("crime_dt_wide.rda") # object name: crime.dt
 `@solution`
 
 ```{r}
+library(data.table)
 library(zoo)
 
 setnames(crime.dt, names(crime.dt), tolower(names(crime.dt)))
