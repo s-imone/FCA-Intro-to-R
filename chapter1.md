@@ -38,15 +38,16 @@ The `data.table` object `crime.dt` will already be loaded to the environment. We
 
 ```{r}
 # Load datasets and packages here.
-load("crime_dt_wide.rda") # object name: crime.dt
+library(data.table)
+library(zoo)
+crime.dt <- get(load("crime_dt_wide.rda")) # object name: crime.dt
 ```
 
 
 `@sample_code`
 
 ```{r}
-# Load the two libraries
-# ...
+# Set column names to lower case
 # ...
 # Take a look at the documentation for zoo
 # ...
@@ -58,12 +59,10 @@ load("crime_dt_wide.rda") # object name: crime.dt
 `@solution`
 
 ```{r}
-library(data.table)
-library(zoo)
-
 setnames(crime.dt, names(crime.dt), tolower(names(crime.dt)))
 
-names(crime.dt)
+crime.dt[, month := month(year.month)]
+crime.dt[, year := year(year.month)]
 ```
 
 
@@ -71,12 +70,11 @@ names(crime.dt)
 
 ```{r}
 # Update this to something more informative.
-test_student_typed("library(data.table)", not_typed_msg = "Are you sure you loaded all the libraries? Take another look at the instruction.")
-test_student_typed("library(zoo)", not_typed_msg = "Are you sure you loaded all the libraries? Take another look at the instruction.")
-
-test_object("names(crime.dt)", incorrect_msg = "Something is wrong with the column names of `crime.dt`. Make sure they are all lower case!.")
+all(names(crime.dt)==tolower(names(crime.dt)))
+# test_object("names(crime.dt)", incorrect_msg = "Something is wrong with the column names of `crime.dt`. Make sure they are all lower case!.")
        
-test_output_contains("names(crime.dt)", incorrect_msg = "Take a look at your code for the third instruction. Consider checking-out documentation for `names()`."
+crime.dt[, class(month)=="integer"]
+crime.dt[, class(year)=="integer"]
 
 success_msg("Well done! Let's try to do something that's actually useful now.")
 ```
