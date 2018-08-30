@@ -38,6 +38,8 @@ The `data.table` object `crime.dt` will already be loaded to the environment. We
 
 ```{r}
 # Load datasets and packages here.
+install.packages("data.table")
+install.packages("zoo")
 library(data.table)
 library(zoo)
 crime.dt <- get(load("crime_dt_wide.rda")) # object name: crime.dt
